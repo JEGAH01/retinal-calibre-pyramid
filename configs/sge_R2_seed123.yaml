@@ -1,0 +1,72 @@
+# Estimator R2, seed 123. Train: python -m src.pretrain_sge --config configs/sge_R2_seed123.yaml --epochs 5 --output checkpoints/sge_R2_seed123
+seed:
+  value: 123
+  deterministic: true
+hardware:
+  device: cuda
+  mixed_precision: true
+  cudnn_benchmark: false
+dataset:
+  name: DRIVE
+  train_dataset:
+    name: DRIVE_train
+    image_dir: datasets/DRIVE/training/image
+    mask_dir: datasets/DRIVE/training/1st_manual
+  validation_ratio: 0.2
+  split_seed: 42
+topology:
+  enabled: true
+  target_root: datasets_topology/DRIVE_train
+patch_training:
+  enabled: true
+  patch_size: 256
+  model_input_size: 256
+  patches_per_image: 100
+  validation_stride: 128
+  vessel_center_probability: 0.6
+  hard_negative_probability: 0.25
+  random_probability: 0.15
+  minimum_vessel_fraction: 0.01
+  hard_negative_max_vessel_fraction: 0.005
+  hard_negative_candidates: 20
+  max_sampling_attempts: 20
+  include_empty_validation_patches: true
+  scale_augmentation:
+    enabled: true
+    probability: 0.8
+    min_scale: 0.7
+    max_scale: 3.2
+    distribution: log_uniform
+    regenerate_topology_targets: true
+preprocessing:
+  image_size:
+    height: 256
+    width: 256
+  channels: 3
+  clahe:
+    enabled: true
+augmentation:
+  enabled: true
+  note: Topology datasets apply synchronized geometric augmentation internally.
+dataloader:
+  batch_size: 2
+  num_workers: 0
+  pin_memory: true
+  shuffle: true
+  drop_last: false
+  persistent_workers: false
+model:
+  medial_frame:
+    estimator:
+      type: pyramid_unet
+      hidden_channels: 16
+      depth: 5
+      levels: 12
+      level_step: 0.5
+      base_radius: 0.5
+      share_weights: true
+    loss:
+      radius_weight: 0.5
+      orientation_weight: 0.2
+      band_weight: 0.2
+      equivariance_weight: 0.1

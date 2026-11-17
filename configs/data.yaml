@@ -1,0 +1,20 @@
+# Dataset locations, DRIVE training split and preprocessing shared by every script.
+# Test datasets are read from datasets_processed/ (src/prepare_datasets.py).
+dataset:
+  name: DRIVE
+  train_dataset:
+    name: DRIVE_train
+    image_dir: datasets/DRIVE/training/image
+    mask_dir: datasets/DRIVE/training/1st_manual
+  validation_ratio: 0.2
+  split_seed: 42
+topology:
+  enabled: true
+  target_root: datasets_topology/DRIVE_train
+preprocessing:
+  image_size:
+    height: 256
+    width: 256
+  channels: 3
+  clahe:
+    enabled: true

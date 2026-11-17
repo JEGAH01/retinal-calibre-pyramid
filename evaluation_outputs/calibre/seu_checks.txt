@@ -1,0 +1,21 @@
+1. Exact semigroup action (implementation check), relative error per scale k = 0..4
+   SEU: after encoder [0.07, 0.053, 0.117, 0.169, 0.017]; whole network [0.406, 0.393, 0.329, 0.198, 0.113]
+   SEU depth 2: after encoder [0.277, 0.508, 0.749, 0.922, 1.076]; whole network [0.49, 0.597, 0.708, 0.751, 0.893]
+
+2. Equivariance under the scale-test protocol (random weights, 256 px crops of DRIVE test 01-03)
+| Model | Factor | Response error, mean over levels | max |
+| --- | --- | --- | --- |
+| SEU | x2 | 0.277 | 0.487 |
+| SEU | x4 | 0.393 | 0.606 |
+| SEU depth 2 | x2 | 0.702 | 0.946 |
+| SEU depth 2 | x4 | 0.762 | 0.987 |
+| R2 | x2 | 0.026 | 0.190 |
+| R2 | x4 | 0.030 | 0.180 |
+
+3. Per-scale against joint evaluation: max |difference| = 0.0e+00
+
+4. GPU memory and time (fp32; peaks above 6144 MiB spill into shared memory on Windows)
+| Model | Train step, 2x256 px | peak | FIVES 2048x2048 | peak | HRF 3504x2336 | peak |
+| --- | --- | --- | --- | --- | --- | --- |
+| SEU | 0.195 s | 1568 MiB | 6.6 s | 4041 MiB | 23.6 s | 7880 MiB |
+| R2 | 0.090 s | 548 MiB | 0.4 s | 2218 MiB | 6.3 s | 4319 MiB |

@@ -1,0 +1,35 @@
+{
+  "steps": 4000,
+  "accuracy": {
+    "x0.75": {
+      "median_abs_log_error": 0.2075011432170868,
+      "median_pred_over_gt": 0.844006359577179,
+      "patches": 64
+    },
+    "x1": {
+      "median_abs_log_error": 0.26848581433296204,
+      "median_pred_over_gt": 0.7554714679718018,
+      "patches": 64
+    },
+    "x1.5": {
+      "median_abs_log_error": 0.3065045028924942,
+      "median_pred_over_gt": 0.838687390089035,
+      "patches": 64
+    },
+    "x2": {
+      "median_abs_log_error": 0.2865784913301468,
+      "median_pred_over_gt": 0.8538258075714111,
+      "patches": 64
+    },
+    "x3": {
+      "median_abs_log_error": 0.33167821168899536,
+      "median_pred_over_gt": 0.751051276922226,
+      "patches": 64
+    },
+    "x4": {
+      "median_abs_log_error": 0.34911689162254333,
+      "median_pred_over_gt": 0.7521840333938599,
+      "patches": 64
+    }
+  }
+}

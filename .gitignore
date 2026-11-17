@@ -1,0 +1,7 @@
+# Local data (see README); no trailing slash, so linked folders are ignored too
+/datasets
+/datasets_processed
+/datasets_topology
+/evaluation_outputs/csr_probs
+__pycache__/
+*.pyc
