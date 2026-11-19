@@ -82,5 +82,6 @@ Run "Table 10: classical scale selection" "" $lss
 Run "Table 11: SEU" "" @("-m", "src.seu_baseline_analysis")
 Run "Table S7: equivariance checks" "" @("-m", "src.seu_checks")
 Run "Figure 1" "" @("-m", "src.fig_architecture")
+Run "Figures 2-4" "" @("-m", "src.fig_results")
 Run "Supplementary tables" "" @("scripts/make_supplement.py")
 Write-Host "`nDone $(Get-Date -Format 'yyyy-MM-dd HH:mm'). Results: $cal"

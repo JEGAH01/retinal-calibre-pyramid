@@ -40,7 +40,8 @@ enlarged DRIVE images and synthetic vessels of known width.
 | Tables S5–S6 | `src.mask_calibre_baseline` | `mask_baseline.md` |
 | Table S7 | `src.seu_checks` | `seu_checks.txt` (printed) |
 | Tables S1–S8 | `scripts/make_supplement.py` | `../supplementary_tables.md` |
-| Figure 1 | `src.fig_architecture` | `../figures/` |
+| Figure 1 | `src.fig_architecture` | `../figures/fig1_architecture.*` |
+| Figures 2–4 | `src.fig_results` (Figure 2 needs the datasets and the mask probability maps; `--only 3 4` runs from the CSVs alone) | `../figures/fig{2,3,4}_*` |
 
 ## Installation
 

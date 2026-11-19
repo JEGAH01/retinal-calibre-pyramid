@@ -1,7 +1,7 @@
 """Figure 1: the R2 estimator, drawn with its real outputs (seed 42, DRIVE test image 01, CPU).
 
     python -m src.fig_architecture
-Writes manuscript/figures/fig1_architecture.{png,pdf}.
+Writes evaluation_outputs/figures/fig1_architecture.{png,pdf}.
 """
 from pathlib import Path
 
